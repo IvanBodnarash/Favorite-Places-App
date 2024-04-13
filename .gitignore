@@ -43,6 +43,7 @@ app.*.map.json
 /android/app/release
 /android/app/src/main/AndroidManifest.xml
 /ios/Runner/AppDelegate.swift
+# New Vars
 
 # Environment variables
 *.env
