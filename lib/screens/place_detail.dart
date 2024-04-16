@@ -1,6 +1,8 @@
+import 'package:favorite_places_app/screens/map.dart';
 import 'package:flutter/material.dart';
 
 import 'package:favorite_places_app/models/place.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'];
@@ -36,9 +38,21 @@ class PlaceDetailScreen extends StatelessWidget {
             left: 0,
             right: 0,
             child: Column(children: [
-              CircleAvatar(
-                radius: 70,
-                backgroundImage: NetworkImage(locationImage),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => MapScreen(
+                        location: place.location,
+                        isSelecting: false,
+                      ),
+                    ),
+                  );
+                },
+                child: CircleAvatar(
+                  radius: 70,
+                  backgroundImage: NetworkImage(locationImage),
+                ),
               ),
               Container(
                 alignment: Alignment.center,
